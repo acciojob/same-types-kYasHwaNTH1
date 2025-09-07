@@ -1,21 +1,11 @@
 function isSameType(value1, value2) {
-  //your js code here
-	let one = parseValue(value1)
-	let two = parseValue(value2)
-	if(typeof(one)===typeof(two)) return true;
-	return false;
+  // Special case: both are NaN
+  if (Number.isNaN(value1) && Number.isNaN(value2)) return true;
+
+  // Otherwise compare types
+  return typeof value1 === typeof value2;
 }
-function parseValue(value) {
-  // Try to parse number
-  if (!isNaN(value) && value.trim() !== "") {
-    return Number(value);
-  }
-  // Convert "true"/"false" to boolean
-  if (value.toLowerCase() === "true") return true;
-  if (value.toLowerCase() === "false") return false;
-  // Otherwise keep as string
-  return value;
-}
+
 
 // do not change the code below.
 let value1 = prompt("Enter Start of the Range.");
